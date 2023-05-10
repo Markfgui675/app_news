@@ -13,11 +13,11 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  bool _naoTemResultado = false;
-
   Future<Map<String, dynamic>> pesquisar() async {
 
-    var url = Uri.parse('https://newsapi.org/v2/everything?q=bitcoin&apiKey=800b8ed63a5d4913b2f5d16ca469ca0f');
+    var url = Uri.parse(
+        'https://api.mediastack.com/v1/news?access_key=3da87df426e0f10d8a920454a69f6927'
+    );
     var response = await http.get(url);
 
     print('Data atual: ${DateTime.now()}');
