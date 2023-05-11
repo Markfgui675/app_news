@@ -16,15 +16,14 @@ class _HomeState extends State<Home> {
   Future<Map<String, dynamic>> pesquisar() async {
 
     var url = Uri.parse(
-        'https://api.mediastack.com/v1/news?access_key=3da87df426e0f10d8a920454a69f6927'
+        'https://newsdata.io/api/1/news?apikey=pub_21979661ed19b0cd99f5cca537c4ef5fbca95&q=pizza'
     );
     var response = await http.get(url);
 
     print('Data atual: ${DateTime.now()}');
     print(response.statusCode);
     if(response.statusCode == 200){
-      dynamic result = json.decode(response.body);
-      print(result);
+      print(json.decode(response.body));
       return json.decode(response.body);
     }
     else {
@@ -63,7 +62,7 @@ class _HomeState extends State<Home> {
                 itemBuilder: (context, index){
                   return ListTile(
 
-                    title: Text(snapshot.data!['articles'][index]['title']),
+                    title: Text(snapshot.data!['results'][index]['title']),
 
                   );
                 }
